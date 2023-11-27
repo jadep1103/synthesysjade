@@ -19,7 +19,7 @@ int main(void) {
 
     signal(SIGINT, handle_signal);
 
-    write(STDOUT_FILENO, HELLO, strlen(HELLO));
+    write(STDOUT_FILENO, WELCOME_MESSAGE, strlen(WELCOME_MESSAGE));
     write(STDOUT_FILENO, REGULAR_PROMPT, strlen(REGULAR_PROMPT));
 
     while (1) {
