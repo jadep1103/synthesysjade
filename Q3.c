@@ -1,51 +1,53 @@
 #include "constantheader.h"
 
-volatile sig_atomic_t exit_requested = 0;
-
-void handle_signal(int signal) {
-    if (signal == SIGINT) {
-        write(STDOUT_FILENO, BYE, strlen(BYE));
-        exit_requested = 1;
-    }
-}
-
 int main(void) {
-    char command[MAX_SIZE] = {0};
-    char display[MAX_SIZE] = {0};
-    int command_length;
-    int pid;
-    int status;
-    int test;
+    char command[MAX_SIZE];   
+    int pid;                  
+    int status;               
+    int command_length;       
+    int test;                 
 
-    signal(SIGINT, handle_signal);
-
-    write(STDOUT_FILENO, WELCOME_MESSAGE, strlen(WELCOME_MESSAGE));
-    write(STDOUT_FILENO, REGULAR_PROMPT, strlen(REGULAR_PROMPT));
+    write(STDOUT_FILENO, WELCOME_MESSAGE, strlen(WELCOME_MESSAGE));   
 
     while (1) {
-        command_length = read(STDIN_FILENO, command, MAX_SIZE);
-        command[command_length - 1] = '\0';
+        write(STDOUT_FILENO, REGULAR_PROMPT, strlen(REGULAR_PROMPT));  
 
-        test = strcmp(EXIT, command);
-        if (test == 0 || command_length == 0 || exit_requested) {
-            write(STDOUT_FILENO, BYE, strlen(BYE));
+        
+        command_length = read(STDIN_FILENO, command, MAX_SIZE);
+
+        // Check for EOF
+        if (command_length == 0) {
+            // User pressed <ctrl>+d (as this is a "end of file" signal) or encountered EOF
+            write(STDOUT_FILENO, "Bye bye...\n", strlen("Bye bye...\n"));
             break;
         }
 
-        pid = fork();
+        command[command_length - 1] = '\0'; 
+
+        test = strcmp(EXIT, command);   
+        if (test == 0) {
+            // User entered "exit"
+            write(STDOUT_FILENO, "Bye bye...\n", strlen("Bye bye...\n"));
+            break;   // Exit the loop if the exit condition is met
+        }
+
+        pid = fork();   
+        if (pid == -1) {
+        
+            perror("Fork failed");
+            exit(EXIT_FAILURE);
+        }
+
         if (pid == 0) {
+            
             execlp(command, command, NULL);
-            write(STDOUT_FILENO, ERR, strlen(ERR));
+
+            perror("Exec failed");
             _exit(EXIT_FAILURE);
         } else {
-            wait(&status);
-            if (WIFSIGNALED(status)) {
-                sprintf(display, "%s%d%s", SIGNALED_PROMPT, WTERMSIG(status), END_PROMPT);
-                write(STDOUT_FILENO, display, strlen(display));
-            } else if (WIFEXITED(status)) {
-                sprintf(display, "%s%d%s", EXITED_PROMPT, WEXITSTATUS(status), END_PROMPT);
-                write(STDOUT_FILENO, display, strlen(display));
-            }
+           
+
+            wait(&status); 
         }
     }
 
