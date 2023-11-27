@@ -1,46 +1,51 @@
 #include "constantheader.h"
-#include <signal.h>
-
-volatile sig_atomic_t exit_requested = 0;
-
-void handle_signal(int signal) {
-    if (signal == SIGINT) {
-        write(STDOUT_FILENO, BYE, strlen(BYE));
-        exit_requested = 1;
-    }
-}
 
 int main(void) {
-    char command[MAX_SIZE];
-    int pid;
-    int status;
-    int command_length;
-    int test;
+    char command[MAX_SIZE];   // Buffer to store user-entered command
+    int pid;                  // Process ID for forking
+    int status;               // Status of child process
+    int command_length;       
+    int test;                 // Result of comparing command with exit condition
 
-    signal(SIGINT, handle_signal);
-
-    write(STDOUT_FILENO, WELCOME_MESSAGE, strlen(WELCOME_MESSAGE));
+    write(STDOUT_FILENO, WELCOME_MESSAGE, strlen(WELCOME_MESSAGE));   
 
     while (1) {
-        write(STDOUT_FILENO, REGULAR_PROMPT, strlen(REGULAR_PROMPT));
+        write(STDOUT_FILENO, REGULAR_PROMPT, strlen(REGULAR_PROMPT));  
 
+        // Read user-entered command from standard input
         command_length = read(STDIN_FILENO, command, MAX_SIZE);
-        command[command_length - 1] = '\0';
+        command[command_length - 1] = '\0'; 
 
-        test = strcmp(EXIT, command);
-        if (test == 0 || exit_requested) {
-            write(STDOUT_FILENO, BYE, strlen(BYE));
-            break;
+        test = strcmp(EXIT, command);   
+        if (test == 0) {
+            break;   // Exit the loop if the exit condition is met
         }
 
-        pid = fork();
+        pid = fork();   // Create a new process to execute the entered command without blocking interactive command loop
+
+        if (pid == -1) {
+        
+            perror("Fork failed");
+            exit(EXIT_FAILURE);
+        }
+
         if (pid == 0) {
+            // In the child process
+
+            // Execute the entered command
             execlp(command, command, NULL);
+
+          
+            perror("Exec failed");
             _exit(EXIT_FAILURE);
         } else {
-            wait(&status);
+            // In the parent process
+
+            wait(&status);  // Wait for the child process to complete
+            
         }
     }
 
-    return 0;
+return 0;
 }
+   
