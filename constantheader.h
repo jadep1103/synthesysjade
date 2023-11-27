@@ -1,1 +1,1 @@
-#define WELCOME_MESSAGE "Welcome to ENSEA Shell \n"
+#define WELCOME_MESSAGE "Welcome to ENSEA Shell \n Pour quitter tapez exit \n"
