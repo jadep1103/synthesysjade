@@ -10,6 +10,7 @@
 
 #define WELCOME_MESSAGE "Welcome to ENSEA Shell \n Pour quitter tapez exit \n"
 #define ERR "This command doesn't exist. Are you sure ? \n"
+#define BYE "Bye bye \n"
 
 #define REGULAR_PROMPT "enseash %  "
 #define EXITED_PROMPT "enseash [exit : "
