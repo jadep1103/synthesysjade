@@ -18,28 +18,35 @@ int main(void) {
 
         // Check for EOF
         if (command_length == 0) {
-            // User pressed <ctrl>+d (as this is an "end of file" signal) or encountered EOF
-            write(STDOUT_FILENO, BYE, strlen(BYE));
-            kill(getpid(), SIGINT);
+            // User pressed <ctrl>+d (as this is a "end of file" signal) or encountered EOF
+            write(STDOUT_FILENO, "Bye bye...\n", strlen("Bye bye...\n"));
+            break;
         }
 
         command[command_length - 1] = '\0';
 
-        test = strcmp(EXIT, command);
+        test = strcmp(EXIT, command);   
         if (test == 0) {
-            write(STDOUT_FILENO, BYE, strlen(BYE));
-            kill(getpid(), SIGINT);
+            // User entered "exit"
+            write(STDOUT_FILENO, "Bye bye...\n", strlen("Bye bye...\n"));
+            break;   // Exit the loop if the exit condition is met
         }
-
+        pid = fork();  
         clock_gettime(CLOCK_REALTIME, &timestart);
 
-        pid = fork();
+     if (pid == -1) {
+        
+            perror("Fork failed");
+            exit(EXIT_FAILURE);
+        }
+
         if (pid == 0) {
+            
             execlp(command, command, NULL);
 
-            write(STDOUT_FILENO, ERR, strlen(ERR));
-            kill(getpid(), SIGINT);
-        } else {
+            perror("Exec failed");
+            _exit(EXIT_FAILURE);  }
+        else {
             wait(&status);
             clock_gettime(CLOCK_REALTIME, &timestop);
             int time = (timestop.tv_nsec - timestart.tv_nsec) / 1000000;
