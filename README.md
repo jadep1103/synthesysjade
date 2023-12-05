@@ -8,11 +8,57 @@ ENSEA Tiny Shell, or enseash, is a micro shell designed for launching commands a
 
 ## Table of Contents
 
-1. [Getting Started](#getting-started)
-2. [Features](#features)
-3. [Usage](#usage)
-4. [Final Considerations](#final-considerations)
+1. [Considerations](#considerations)
+2. [Getting Started](#getting-started)
+3. [Features](#features)
+4. [Usage](#usage)
 5. [Colaborators](#colaborators)
+
+# Considerations
+
+## What Was Learned?
+
+Throughout the development of ENSEA Tiny Shell (enseash), several key lessons were learned:
+
+1. **Systems Programming:**
+   - Gain a deeper understanding of systems programming, particularly in the context of developing a micro shell.
+
+2. **Process Management:**
+   - Learn how to manage processes using fork, exec, and wait, and understand the challenges and intricacies involved in process execution.
+
+3. **Signal Handling:**
+   - Acquire knowledge about signal handling, especially in the context of handling SIGINT gracefully for a better user experience.
+
+4. **File I/O and Shell Operations:**
+   - Explore file input/output operations and shell operations such as reading commands, executing them, and managing their output.
+
+5. **Code Organization and Documentation:**
+   - Understand the importance of well-organized code and the value of documentation in enhancing code readability and maintainability.
+
+6. **Git and GitHub Collaboration:**
+   - Develop collaboration skills by working in pairs and effectively utilizing Git and GitHub for version control and project synchronization.
+
+## Most Valuable Lessons
+
+1. **Efficient Resource Management:**
+   - Learn how to manage system resources efficiently, considering factors like process creation, execution, and termination.
+
+2. **Practical Application of Theoretical Concepts:**
+   - Bridge the gap between theoretical knowledge acquired in the classroom and its practical application in developing a real-world project.
+
+## Difficulties Encountered
+
+### Letícia
+
+1. **Linux:**
+   - I did not have much familiarity with the linux system, therefore, having a partner with more experience was great so I could better learn how to use the system and it's functionalities
+2. **Remote Programing:**
+   - During the first session of the TP, due to adverse circumstances, I had to contribute to the TP remotly. Althought it was a challenge, it helped us implement github good practices and also bettered our communication while commiting our codes to the repository.
+3. **Bugs:**
+   - During our TP, we encountered many bugs, and fixing them was definetly a challenge, but overall we learned a lot more about the C language library and it's functionalities.
+   - Also, when we found ourselves stuck in a problem that we had trouble fixing ourselves, monsieur Tauvel would always analyse our code and explain to us how to better solve it, which made the whole TP session lighter and more instructive.
+4. **Familiarity with TP Structure:**
+   - Since I am a newcomer in ENSEA, I didn't know what to expect about TPs, however, as time passed, I understood that a TP is much more then a test of our knowledge, but also a learning session in which the teacher guides us into better understanding practical issues regarding the knowledge taught in class.
 
 ## Getting Started
 
@@ -72,38 +118,6 @@ Follow these guidelines to use enseash effectively:
 
 - Read the prompt, enter commands, and observe the output.
 - Use the `exit` command or `<ctrl>+d` to gracefully exit the shell.
-
-# Final Considerations
-
-## What Was Learned?
-
-Throughout the development of ENSEA Tiny Shell (enseash), several key lessons were learned:
-
-1. **Systems Programming:**
-   - Gain a deeper understanding of systems programming, particularly in the context of developing a micro shell.
-
-2. **Process Management:**
-   - Learn how to manage processes using fork, exec, and wait, and understand the challenges and intricacies involved in process execution.
-
-3. **Signal Handling:**
-   - Acquire knowledge about signal handling, especially in the context of handling SIGINT gracefully for a better user experience.
-
-4. **File I/O and Shell Operations:**
-   - Explore file input/output operations and shell operations such as reading commands, executing them, and managing their output.
-
-5. **Code Organization and Documentation:**
-   - Understand the importance of well-organized code and the value of documentation in enhancing code readability and maintainability.
-
-6. **Git and GitHub Collaboration:**
-   - Develop collaboration skills by working in pairs and effectively utilizing Git and GitHub for version control and project synchronization.
-
-## Most Valuable Lessons
-
-1. **Efficient Resource Management:**
-   - Learn how to manage system resources efficiently, considering factors like process creation, execution, and termination.
-
-2. **Practical Application of Theoretical Concepts:**
-   - Bridge the gap between theoretical knowledge acquired in the classroom and its practical application in developing a real-world project.
   
 ## Colaborators
 <table>
