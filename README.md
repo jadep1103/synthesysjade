@@ -16,6 +16,29 @@ ENSEA Tiny Shell, or enseash, is a micro shell designed for launching commands a
 
 # Considerations
 
+## Difficulties Encountered
+
+### Letícia
+
+1. **Linux:**
+   - I did not have much familiarity with the linux system, therefore, having a partner with more experience was great so I could better learn how to use the system and it's functionalities
+2. **Remote Programing:**
+   - During the first session of the TP, due to adverse circumstances, I had to contribute to the TP remotly. Althought it was a challenge, it helped us implement github good practices and also bettered our communication while commiting our codes to the repository.
+3. **Bugs:**
+   - During our TP, we encountered many bugs, and fixing them was definetly a challenge, but overall we learned a lot more about the C language library and it's functionalities.
+   - Also, when we found ourselves stuck in a problem that we had trouble fixing ourselves, monsieur Tauvel would always analyse our code and explain to us how to better solve it, which made the whole TP session lighter and more instructive.
+4. **Familiarity with TP Structure:**
+   - Since I am a newcomer in ENSEA, I didn't know what to expect about TPs, however, as time passed, I understood that a TP is much more then a test of our knowledge, but also a learning session in which the teacher guides us into better understanding practical issues regarding the knowledge taught in class.
+
+### Jade
+
+1. **System Processes:**
+   - Troubleshooting issues related to precess creation termination and management demanded a meticulous approach to ensure smooth system operation.
+2. **Debugging Complexity:**
+   - Particularly when dealing with C low level code.
+3. **Memory Management:**
+   - Managing memory at low level was a challenged and i kinda struggled with segmentation faults that required my constant attention.
+
 ## What Was Learned?
 
 Throughout the development of ENSEA Tiny Shell (enseash), several key lessons were learned:
@@ -45,20 +68,6 @@ Throughout the development of ENSEA Tiny Shell (enseash), several key lessons we
 
 2. **Practical Application of Theoretical Concepts:**
    - Bridge the gap between theoretical knowledge acquired in the classroom and its practical application in developing a real-world project.
-
-## Difficulties Encountered
-
-### Letícia
-
-1. **Linux:**
-   - I did not have much familiarity with the linux system, therefore, having a partner with more experience was great so I could better learn how to use the system and it's functionalities
-2. **Remote Programing:**
-   - During the first session of the TP, due to adverse circumstances, I had to contribute to the TP remotly. Althought it was a challenge, it helped us implement github good practices and also bettered our communication while commiting our codes to the repository.
-3. **Bugs:**
-   - During our TP, we encountered many bugs, and fixing them was definetly a challenge, but overall we learned a lot more about the C language library and it's functionalities.
-   - Also, when we found ourselves stuck in a problem that we had trouble fixing ourselves, monsieur Tauvel would always analyse our code and explain to us how to better solve it, which made the whole TP session lighter and more instructive.
-4. **Familiarity with TP Structure:**
-   - Since I am a newcomer in ENSEA, I didn't know what to expect about TPs, however, as time passed, I understood that a TP is much more then a test of our knowledge, but also a learning session in which the teacher guides us into better understanding practical issues regarding the knowledge taught in class.
 
 ## Getting Started
 
